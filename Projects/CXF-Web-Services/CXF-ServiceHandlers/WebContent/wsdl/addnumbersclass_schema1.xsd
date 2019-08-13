@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://sum.org.com/" elementFormDefault="unqualified" targetNamespace="http://sum.org.com/" version="1.0">
+<xs:element name="getSum" type="tns:getSum"/>
+<xs:element name="getSumResponse" type="tns:getSumResponse"/>
+<xs:complexType name="getSum">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:int"/>
+      <xs:element name="arg1" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getSumResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="MtomService" targetNamespace="http://cxf.apache.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://cxf.apache.org/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <schema xmlns="http://www.w3.org/2001/XMLSchema">
+<import namespace="http://cxf.apache.org/" schemaLocation="mtomserver_schema1.xsd"/>
+</schema>
+  </wsdl:types>
+  <wsdl:message name="attachDataHandler">
+    <wsdl:part name="parameters" element="tns:attachDataHandler">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="attachByteArray">
+    <wsdl:part name="parameters" element="tns:attachByteArray">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="attachByteArrayResponse">
+    <wsdl:part name="parameters" element="tns:attachByteArrayResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="attachDataHandlerResponse">
+    <wsdl:part name="parameters" element="tns:attachDataHandlerResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="MTomPort">
+    <wsdl:operation name="attachDataHandler">
+      <wsdl:input name="attachDataHandler" message="tns:attachDataHandler">
+    </wsdl:input>
+      <wsdl:output name="attachDataHandlerResponse" message="tns:attachDataHandlerResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="attachByteArray">
+      <wsdl:input name="attachByteArray" message="tns:attachByteArray">
+    </wsdl:input>
+      <wsdl:output name="attachByteArrayResponse" message="tns:attachByteArrayResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MtomServiceSoapBinding" type="tns:MTomPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="attachByteArray">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="attachByteArray">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="attachByteArrayResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="attachDataHandler">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="attachDataHandler">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="attachDataHandlerResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MtomService">
+    <wsdl:port name="MtomPort" binding="tns:MtomServiceSoapBinding">
+      <soap:address location="http://localhost:8080/Cxf_MTOM_Attachments/services/MtomPort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

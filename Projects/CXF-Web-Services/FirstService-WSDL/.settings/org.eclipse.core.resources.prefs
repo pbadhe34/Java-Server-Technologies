@@ -1,0 +1,7 @@
+eclipse.preferences.version=1
+encoding//src/com/bank/server/Account.java=UTF-8
+encoding//src/com/bank/server/AccountService.java=UTF-8
+encoding//src/com/bank/server/AccountServiceLocator.java=UTF-8
+encoding//src/com/bank/server/AccountSoapBindingImpl.java=UTF-8
+encoding//src/com/bank/server/AccountSoapBindingSkeleton.java=UTF-8
+encoding//src/com/bank/server/AccountSoapBindingStub.java=UTF-8

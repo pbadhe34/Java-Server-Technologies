@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<emp>
+    <empAddress>
+        <area>
+            <direction>2</direction>
+            <roadName>Pedar Road</roadName>
+        </area>
+        <cityName>Mumbai</cityName>
+        <houserNuumber>12324</houserNuumber>
+    </empAddress>
+    <birth_Date>2010-10-09T08:36:51.453+05:30</birth_Date>
+    <id>12</id>
+    <name>Sunil</name>
+</emp>

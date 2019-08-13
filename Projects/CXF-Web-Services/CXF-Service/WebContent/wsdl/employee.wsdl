@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="EmployeeService" targetNamespace="http://data.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://data.org/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <schema xmlns="http://www.w3.org/2001/XMLSchema">
+  <import namespace="http://data.org/" schemaLocation="employee_schema1.xsd"/>
+</schema>
+  </wsdl:types>
+  <wsdl:message name="calculateSalary">
+    <wsdl:part name="parameters" element="tns:calculateSalary">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getNameofEmployee">
+    <wsdl:part name="parameters" element="tns:getNameofEmployee">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getNameofEmployeeResponse">
+    <wsdl:part name="parameters" element="tns:getNameofEmployeeResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="calculateSalaryResponse">
+    <wsdl:part name="parameters" element="tns:calculateSalaryResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="Human">
+    <wsdl:operation name="calculateSalary">
+      <wsdl:input name="calculateSalary" message="tns:calculateSalary">
+    </wsdl:input>
+      <wsdl:output name="calculateSalaryResponse" message="tns:calculateSalaryResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNameofEmployee">
+      <wsdl:input name="getNameofEmployee" message="tns:getNameofEmployee">
+    </wsdl:input>
+      <wsdl:output name="getNameofEmployeeResponse" message="tns:getNameofEmployeeResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="EmployeeServiceSoapBinding" type="tns:Human">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="calculateSalary">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="calculateSalary">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="calculateSalaryResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNameofEmployee">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getNameofEmployee">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getNameofEmployeeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EmployeeService">
+    <wsdl:port name="EmployeePort" binding="tns:EmployeeServiceSoapBinding">
+      <soap:address location="http://localhost:8090/CXF-Service/services"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

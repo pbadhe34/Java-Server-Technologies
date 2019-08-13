@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="AddNumbers" targetNamespace="http://sum.org.com/" xmlns:ns1="http://sum.org.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+<schema xmlns="http://www.w3.org/2001/XMLSchema">
+<import namespace="http://sum.org.com/" schemaLocation="addnumbersclass_schema1.xsd"/>
+</schema>
+  </wsdl:types>
+  <wsdl:message name="addNumbersResponse">
+    <wsdl:part name="parameters" element="ns1:addNumbersResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addNumbers">
+    <wsdl:part name="parameters" element="ns1:addNumbers">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="AddNumbers">
+    <wsdl:operation name="addNumbers">
+      <wsdl:input name="addNumbers" message="ns1:addNumbers">
+    </wsdl:input>
+      <wsdl:output name="addNumbersResponse" message="ns1:addNumbersResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

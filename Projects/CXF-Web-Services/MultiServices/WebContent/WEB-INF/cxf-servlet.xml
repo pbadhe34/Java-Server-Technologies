@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xmlns:soap="http://cxf.apache.org/bindings/soap"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd http://cxf.apache.org/bindings/soap http://cxf.apache.org/schemas/configuration/soap.xsd http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
+	<jaxws:endpoint xmlns:tns="http://server.com/" id="mybase"
+		implementor="com.server.MyBase" wsdlLocation="wsdl/mybase.wsdl"
+		endpointName="tns:MyBasePort" serviceName="tns:MyBaseService" address="/MyBasePort">
+		<jaxws:features>
+			<bean class="org.apache.cxf.feature.LoggingFeature" />
+		</jaxws:features>
+	</jaxws:endpoint>
+	<jaxws:endpoint xmlns:tns="http://server.com/" id="myClass"
+		implementor="com.server.MyClass" wsdlLocation="wsdl/myClass.wsdl"
+		endpointName="tns:MyClassPort" serviceName="tns:MyBaseService" address="/MyClassPort">
+		<jaxws:features>
+			<bean class="org.apache.cxf.feature.LoggingFeature" />
+		</jaxws:features>
+	</jaxws:endpoint>
+	<jaxws:endpoint xmlns:tns="http://server.com/" id="myTest"
+		implementor="com.server.MyClass" wsdlLocation="wsdl/myService.wsdl"
+		endpointName="tns:MyClass" serviceName="tns:MyService" address="/MyServicePort">
+		<jaxws:features>
+			<bean class="org.apache.cxf.feature.LoggingFeature" />
+		</jaxws:features>
+	</jaxws:endpoint>
+	<jaxws:endpoint xmlns:tns="http://server.com/" id="myPort"
+		implementor="com.server.MyBase" wsdlLocation="wsdl/myService.wsdl"
+		endpointName="tns:MyPort" serviceName="tns:MyService" address="/MyPort">
+		<jaxws:features>
+			<bean class="org.apache.cxf.feature.LoggingFeature" />
+		</jaxws:features>
+	</jaxws:endpoint>
+	
+	<jaxws:endpoint xmlns:tns="http://server.com/" id="myTest1"
+		implementor="com.server.MyClass" wsdlLocation="wsdl/myService.wsdl"
+		endpointName="tns:MyClass" serviceName="tns:TestService" address="/TestPort1">
+		<jaxws:features>
+			<bean class="org.apache.cxf.feature.LoggingFeature" />
+		</jaxws:features>
+	</jaxws:endpoint>
+	<jaxws:endpoint xmlns:tns="http://server.com/" id="myPort1"
+		implementor="com.server.MyClass" wsdlLocation="wsdl/myService.wsdl"
+		endpointName="tns:MyPort" serviceName="tns:TestService" address="/TestPort2">
+		<jaxws:features>
+			<bean class="org.apache.cxf.feature.LoggingFeature" />
+		</jaxws:features>
+	</jaxws:endpoint>
+</beans>

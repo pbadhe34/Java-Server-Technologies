@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>REST_MimeTypes</display-name>
+  
+  <context-param><!-- This will decide the mime types for the browser clients -->
+        <param-name>resteasy.media.type.mappings</param-name>
+        <param-value>html : text/html, txt : text/plain, xml : application/xml,json:application/json</param-value>
+    </context-param>
+    
+     <!-- <context-param>
+		<param-name>resteasy.resources</param-name>
+		<param-value>com.services.CustomerResource</param-value>			 
+	</context-param> -->
+
+    <servlet>
+        <servlet-name>RestServlet</servlet-name>
+        <servlet-class>
+            org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher
+        </servlet-class>
+        <init-param>
+            <param-name>javax.ws.rs.Application</param-name>
+            <param-value>com.services.ShoppingApplication</param-value>
+        </init-param>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>RestServlet</servlet-name>
+        <url-pattern>/customers/*</url-pattern>
+    </servlet-mapping>
+</web-app>

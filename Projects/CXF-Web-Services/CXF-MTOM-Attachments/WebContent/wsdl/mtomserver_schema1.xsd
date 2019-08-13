@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://cxf.apache.org/" elementFormDefault="unqualified" targetNamespace="http://cxf.apache.org/" version="1.0">
+<xs:element name="attachByteArray" type="tns:attachByteArray"/>
+<xs:element name="attachByteArrayResponse" type="tns:attachByteArrayResponse"/>
+<xs:element name="attachDataHandler" type="tns:attachDataHandler"/>
+<xs:element name="attachDataHandlerResponse" type="tns:attachDataHandlerResponse"/>
+<xs:complexType name="attachDataHandler">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg1" type="xs:base64Binary"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="attachDataHandlerResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg1" type="xs:base64Binary"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="attachByteArray">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg1" type="xs:base64Binary"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="attachByteArrayResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg1" type="xs:base64Binary"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

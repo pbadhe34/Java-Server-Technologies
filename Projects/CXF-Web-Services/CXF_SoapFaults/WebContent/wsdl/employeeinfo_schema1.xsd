@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://server.com/" elementFormDefault="unqualified" targetNamespace="http://server.com/" version="1.0">
+<xs:element name="addEmployee" type="tns:addEmployee"/>
+<xs:element name="addEmployeeResponse" type="tns:addEmployeeResponse"/>
+<xs:element name="getEmployee" type="tns:getEmployee"/>
+<xs:element name="getEmployeeResponse" type="tns:getEmployeeResponse"/>
+<xs:element name="getEmployees" type="tns:getEmployees"/>
+<xs:element name="getEmployeesResponse" type="tns:getEmployeesResponse"/>
+<xs:complexType name="getEmployees">
+    <xs:sequence/>
+  </xs:complexType>
+<xs:complexType name="getEmployeesResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:employee"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="employee">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="employeeID" type="xs:string"/>
+      <xs:element minOccurs="0" name="employeeName" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getEmployee">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getEmployeeResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:employee"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="addEmployee">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:employee"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="addEmployeeResponse">
+    <xs:sequence/>
+  </xs:complexType>
+</xs:schema>

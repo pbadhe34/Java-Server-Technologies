@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://server.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://server.com" xmlns:intf="http://server.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://server.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="getUser">
+    <complexType>
+     <sequence>
+      <element name="id1" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getUserResponse">
+    <complexType>
+     <sequence>
+      <element name="getUserReturn" type="impl:User"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="Address">
+    <sequence>
+     <element name="number" type="xsd:int"/>
+     <element name="road" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="User">
+    <sequence>
+     <element name="addr" nillable="true" type="impl:Address"/>
+     <element name="balance" type="xsd:double"/>
+     <element name="id" type="xsd:int"/>
+     <element name="name" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <element name="updateUser">
+    <complexType>
+     <sequence>
+      <element name="obj" type="impl:User"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="updateUserResponse">
+    <complexType>
+     <sequence>
+      <element name="updateUserReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getUserRequest">
+
+      <wsdl:part element="impl:getUser" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getUserResponse">
+
+      <wsdl:part element="impl:getUserResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateUserRequest">
+
+      <wsdl:part element="impl:updateUser" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateUserResponse">
+
+      <wsdl:part element="impl:updateUserResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:portType name="BankService">
+
+      <wsdl:operation name="getUser">
+
+         <wsdl:input message="impl:getUserRequest" name="getUserRequest"/>
+
+         <wsdl:output message="impl:getUserResponse" name="getUserResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateUser">
+
+         <wsdl:input message="impl:updateUserRequest" name="updateUserRequest"/>
+
+         <wsdl:output message="impl:updateUserResponse" name="updateUserResponse"/>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="BankServiceSoapBinding" type="impl:BankService">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getUser">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getUserRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getUserResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateUser">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="updateUserRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="updateUserResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="BankServiceService">
+
+      <wsdl:port binding="impl:BankServiceSoapBinding" name="BankService">
+
+         <wsdlsoap:address location="http://localhost:8080/CustomTypes/services/BankService"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

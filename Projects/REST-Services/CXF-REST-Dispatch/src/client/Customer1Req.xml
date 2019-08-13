@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<Customer>
+    <id>1234</id>
+    <name>Kaka</name>
+    <phoneNumber>123456</phoneNumber>
+</Customer>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="MTomPort" targetNamespace="http://server.com/" xmlns:ns1="http://server.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+<schema xmlns="http://www.w3.org/2001/XMLSchema">
+<import namespace="http://server.com/" schemaLocation="mtomserver_schema1.xsd"/>
+</schema>
+  </wsdl:types>
+  <wsdl:message name="attachByteArrayResponse">
+    <wsdl:part name="parameters" element="ns1:attachByteArrayResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="attachDataHandlerResponse">
+    <wsdl:part name="parameters" element="ns1:attachDataHandlerResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="attachDataHandler">
+    <wsdl:part name="parameters" element="ns1:attachDataHandler">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="attachByteArray">
+    <wsdl:part name="parameters" element="ns1:attachByteArray">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="MTomPort">
+    <wsdl:operation name="attachDataHandler">
+      <wsdl:input name="attachDataHandler" message="ns1:attachDataHandler">
+    </wsdl:input>
+      <wsdl:output name="attachDataHandlerResponse" message="ns1:attachDataHandlerResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="attachByteArray">
+      <wsdl:input name="attachByteArray" message="ns1:attachByteArray">
+    </wsdl:input>
+      <wsdl:output name="attachByteArrayResponse" message="ns1:attachByteArrayResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

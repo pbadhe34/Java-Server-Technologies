@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="AddNumbersClassService" targetNamespace="http://sum.org.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://sum.org.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <schema xmlns="http://www.w3.org/2001/XMLSchema">
+<import namespace="http://sum.org.com/" schemaLocation="addnumbersclass_schema1.xsd"/>
+</schema>
+  </wsdl:types>
+  <wsdl:message name="getSumResponse">
+    <wsdl:part name="parameters" element="tns:getSumResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getSum">
+    <wsdl:part name="parameters" element="tns:getSum">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="AddNumbers">
+    <wsdl:operation name="getSum">
+      <wsdl:input name="getSum" message="tns:getSum">
+    </wsdl:input>
+      <wsdl:output name="getSumResponse" message="tns:getSumResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AddNumbersClassServiceSoapBinding" type="tns:AddNumbers">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getSum">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getSum">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getSumResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AddNumbersClassService">
+    <wsdl:port name="AddNumbersClassPort" binding="tns:AddNumbersClassServiceSoapBinding">
+      <soap:address location="http://localhost:8080/Cxf_Handlers/services/AddNumbersClassPort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<employee>
+    <address>
+        <area>
+            <direction>6</direction>
+            <roadName>M. G. Road</roadName>
+        </area>
+        <cityName>Pune</cityName>
+        <houserNuumber>876</houserNuumber>
+    </address>
+    <birth_Date>2019-07-31T13:30:47.060+05:30</birth_Date>
+    <id>11</id>
+    <name>Vijay Malusare</name>
+</employee>

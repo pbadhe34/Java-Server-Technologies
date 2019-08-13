@@ -1,0 +1,35 @@
+<xs:schema xmlns:tns="http://data.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://data.org/" version="1.0">
+
+  <xs:element name="calculateSalary" type="tns:calculateSalary"/>
+
+  <xs:element name="calculateSalaryResponse" type="tns:calculateSalaryResponse"/>
+
+  <xs:element name="getNameofEmployee" type="tns:getNameofEmployee"/>
+
+  <xs:element name="getNameofEmployeeResponse" type="tns:getNameofEmployeeResponse"/>
+
+  <xs:complexType name="calculateSalary">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="calculateSalaryResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:double"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getNameofEmployee">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getNameofEmployeeResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>

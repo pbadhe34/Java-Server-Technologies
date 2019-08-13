@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from AccountService WSDL service -->
+
+  <service name="Account" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://server.bank.com"/>
+      <parameter name="wsdlServiceElement" value="AccountService"/>
+      <parameter name="schemaQualified" value="http://server.bank.com"/>
+      <parameter name="wsdlServicePort" value="Account"/>
+      <parameter name="className" value="com.bank.server.Account"/>
+      <parameter name="wsdlPortType" value="Account"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://server.bank.com" xmlns:retNS="http://server.bank.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="readAccountBalance" qname="operNS:readAccountBalance" returnQName="retNS:readAccountBalanceReturn" returnType="rtns:int" soapAction="">
+        <parameter xmlns:pns="http://server.bank.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:name" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://server.bank.com" xmlns:retNS="http://server.bank.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getAccountName" qname="operNS:getAccountName" returnQName="retNS:getAccountNameReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://server.bank.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:acNo" type="tns:int"/>
+      </operation>
+      <parameter name="allowedMethods" value="getAccountName readAccountBalance"/>
+
+  </service>
+</deployment>

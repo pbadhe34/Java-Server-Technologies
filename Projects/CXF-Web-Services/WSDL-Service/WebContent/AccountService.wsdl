@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://server.bank.com" xmlns:impl="http://server.bank.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:intf="http://server.bank.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <schema elementFormDefault="qualified" targetNamespace="http://server.bank.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="readAccountBalance">
+    <complexType>
+     <sequence>
+      <element name="name" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="readAccountBalanceResponse">
+    <complexType>
+     <sequence>
+      <element name="readAccountBalanceReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getAccountName">
+    <complexType>
+     <sequence>
+      <element name="acNo" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getAccountNameResponse">
+    <complexType>
+     <sequence>
+      <element name="getAccountNameReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+  </wsdl:types>
+  <wsdl:message name="getAccountNameRequest">
+    <wsdl:part name="parameters" element="impl:getAccountName">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="readAccountBalanceRequest">
+    <wsdl:part name="parameters" element="impl:readAccountBalance">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="readAccountBalanceResponse">
+    <wsdl:part name="parameters" element="impl:readAccountBalanceResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAccountNameResponse">
+    <wsdl:part name="parameters" element="impl:getAccountNameResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="Account">
+    <wsdl:operation name="readAccountBalance">
+      <wsdl:input name="readAccountBalanceRequest" message="impl:readAccountBalanceRequest">
+    </wsdl:input>
+      <wsdl:output name="readAccountBalanceResponse" message="impl:readAccountBalanceResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAccountName">
+      <wsdl:input name="getAccountNameRequest" message="impl:getAccountNameRequest">
+    </wsdl:input>
+      <wsdl:output name="getAccountNameResponse" message="impl:getAccountNameResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AccountSoapBinding" type="impl:Account">
+    <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="readAccountBalance">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="readAccountBalanceRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="readAccountBalanceResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAccountName">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getAccountNameRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAccountNameResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AccountService">
+    <wsdl:port name="Account" binding="impl:AccountSoapBinding">
+      <wsdlsoap:address location="http://localhost:8090/WSDL-Service/services/Account"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
